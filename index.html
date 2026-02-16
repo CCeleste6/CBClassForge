@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Class Forge - Beta 1.9 (Dev Build)</title>
+<title>Class Forge - Beta 1.9 (Dev Omega)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
@@ -130,7 +130,7 @@ textarea { height: 60px; resize: none; }
 
 <div id="config-screen" class="config-overlay" style="display:flex;">
     <h1 class="brand-title">CLASS FORGE</h1>
-    <div class="version-badge">BETA v1.9</div>
+    <div class="version-badge">BETA v1.9 (DEV)</div>
     
     <div class="config-box" id="configBox">
     <label style="color:var(--gold); font-weight:bold; display:block; margin-bottom:5px;">📜 Matéria</label>
@@ -155,6 +155,7 @@ textarea { height: 60px; resize: none; }
     <option value="3">Rápido (3 Fases)</option>
     <option value="5" selected>Normal (5 Fases)</option>
     <option value="7">Longo (7 Fases)</option>
+    <option value="10" style="color:#a020f0; font-weight:bold;">Ω MODO OMEGA (Vestibular - 10 Fases)</option>
     </select>
     <label style="color:var(--gold); font-weight:bold; display:block; margin-bottom:5px;">🔑 API Key (Gemini)</label>
     <input type="password" id="apiKey" value="AIzaSyBD_knFsZmwR5nDknz5tSi2Gk-BuXkStXs" placeholder="Cole sua chave aqui">
@@ -187,16 +188,15 @@ textarea { height: 60px; resize: none; }
 </div>
 
 <script>
+// Code Easter Egg (Optional now)
 const secretCode = ['r', 'u', 'g', 'a', 'l']; let keyIndex = 0;
 document.addEventListener('keydown', (e) => {
 if (e.key.toLowerCase() === secretCode[keyIndex]) { keyIndex++; if (keyIndex === secretCode.length) { activateOmegaMode(); keyIndex = 0; } } else { keyIndex = 0; }
 });
 function activateOmegaMode() {
 playSound('boss');
-const difficultySelect = document.getElementById('difficulty');
-const omegaOption = document.createElement('option');
-omegaOption.value = "10"; omegaOption.text = "Ω MODO OMEGA (Vestibular - 10 Fases)"; omegaOption.style.fontWeight = "bold"; omegaOption.style.color = "#a020f0";
-difficultySelect.add(omegaOption); difficultySelect.value = "10"; checkOmega(); alert("⚠️ MODO OMEGA DESBLOQUEADO");
+// Omega is already there, but we play the sound for fun
+checkOmega(); alert("⚠️ MODO OMEGA ATIVADO (Easter Egg!)");
 }
 function checkOmega() {
 const val = document.getElementById('difficulty').value; const box = document.getElementById('configBox');
